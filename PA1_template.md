@@ -42,6 +42,8 @@ hist(StepsPerDay$steps, col = &quot;darkblue&quot;, xlab = &quot;Total steps per
 library(scales)
 ggplot(StepsPerDay, aes(x=date, y=steps)) + geom_bar(stat = &quot;identity&quot;, width=.6, fill=&quot;blue&quot;) + ylab(&quot;Steps&quot;) + xlab(&quot;Dates&quot;) + labs(title = &quot;Total number of steps taken each day&quot;) + theme(axis.text.x = element_text(angle=75, vjust=0.1))</code></pre>
 
+![image](https://user-images.githubusercontent.com/25466408/150454664-62be5d32-01ae-422c-ad92-7a62bbfe8fb8.png)
+
 <li>Mean and median number of steps taken each day</li>
 </ol>
 <pre class="r"><code>rmean &lt;- mean(StepsPerDay$steps)
@@ -57,6 +59,7 @@ rmedian</code></pre>
 names(AverageStepsPerDay)&lt;-c(&quot;interval&quot;, &quot;mean&quot;)
 ggplot(AverageStepsPerDay, aes(x=interval, y = mean , group=1)) + geom_line() + ylab(&quot;Average number of steps&quot;) + xlab(&quot;Interval&quot;) + labs(title = &quot;Average number of steps per interval&quot;) + theme(axis.text.x = element_text(angle=75, vjust=0.1))</code></pre>
 
+![image](https://user-images.githubusercontent.com/25466408/150454738-6d6aeb4b-1ade-42f8-bc9f-3f0f7a8850e6.png)
 
 <li>The 5-minute interval that, on average, contains the maximum number of steps</li>
 </ol>
@@ -90,10 +93,14 @@ new_dataset_activity$steps &lt;- fillNA
 TotalSteps &lt;- aggregate(steps ~ date, data = new_dataset_activity, sum, na.rm = TRUE)
 hist(TotalSteps$steps, main = paste(&quot;Total Steps Each Day&quot;), col=&quot;blue&quot;, xlab=&quot;Number of Steps&quot;)</code></pre>
 
+![image](https://user-images.githubusercontent.com/25466408/150454814-569eb031-2171-460c-abf4-0a22cbd55dab.png)
+
 <p>7.1 Create Histogram to show difference.</p>
 <pre class="r"><code>hist(TotalSteps$steps, main = paste(&quot;Total Steps Each Day&quot;), col=&quot;blue&quot;, xlab=&quot;Number of Steps&quot;)
 hist(StepsPerDay$steps, main = paste(&quot;Total Steps Each Day&quot;), col=&quot;green&quot;, xlab=&quot;Number of Steps&quot;, add=T)
 legend(&quot;topright&quot;, c(&quot;Imputed&quot;, &quot;Non-imputed&quot;), col=c(&quot;blue&quot;, &quot;green&quot;), lwd=10)</code></pre>
+
+![image](https://user-images.githubusercontent.com/25466408/150454851-3a20e108-7074-4dc1-a78f-ebdd25e65f17.png)
 
 <p>7.2 Mean and Median of the total number of steps taken per day</p>
 <pre class="r"><code>cmean &lt;- mean(TotalSteps$steps)
@@ -114,4 +121,5 @@ library(lattice)
 xyplot(TotalStepsU$steps ~ TotalStepsU$interval|TotalStepsU$dayoftheweek, main=&quot;Average Steps per Day by Interval&quot;,xlab=&quot;Interval&quot;, ylab=&quot;Steps&quot;,layout=c(1,2), type=&quot;l&quot;)</code></pre>
 </div>
 
+![image](https://user-images.githubusercontent.com/25466408/150454884-2708d40b-6819-4203-8e4f-202682d8b6e8.png)
 
