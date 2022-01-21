@@ -1,6 +1,3 @@
-<title>Activity_Steps</title>
-
-
 <h1 class="title toc-ignore">Activity_Steps</h1>
 <h4 class="author">Victor Campos</h4>
 <h4 class="date">20/1/2022</h4>
@@ -27,7 +24,8 @@
 <pre class="r"><code>activitydata &lt;- read.csv(&quot;C:/Project Files/CURSOS/DataScience-Hopkins/ReproducibleResearch_Week 2_Course Project_1/activity.csv&quot;)
 StepsPerDay &lt;- aggregate(steps~date, activitydata, sum)
 hist(StepsPerDay$steps, col = &quot;darkblue&quot;, xlab = &quot;Total steps per day&quot;, ylim = c(0,30), main = &quot;Total number of steps taken each day&quot;, breaks = seq(0,25000,by=2500))</code></pre>
-<p><img 
+![image](https://user-images.githubusercontent.com/25466408/150454508-75a90ec2-9e3a-4a06-84a1-575b81653341.png)
+
 <pre class="r"><code>summary(activitydata)</code></pre>
 <pre><code>##      steps            date              interval     
 ##  Min.   :  0.00   Length:17568       Min.   :   0.0  
